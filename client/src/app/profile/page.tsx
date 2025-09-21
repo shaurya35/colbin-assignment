@@ -30,14 +30,12 @@ export default function Profile() {
   });
   const [newSkill, setNewSkill] = useState('');
 
-  // Redirect if not authenticated
   useEffect(() => {
     if (!isAuthenticated) {
       router.push('/login');
     }
   }, [isAuthenticated, router]);
 
-  // Initialize form data when profile loads
   useEffect(() => {
     if (profile) {
       setFormData({
@@ -80,12 +78,11 @@ export default function Profile() {
   };
 
   if (!isAuthenticated) {
-    return null; // Will redirect
+    return null;
   }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-50">
-      {/* Navigation */}
       <nav className="bg-white shadow-sm border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
@@ -133,7 +130,6 @@ export default function Profile() {
 
           {profile && !loading && (
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Basic Information */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -197,7 +193,6 @@ export default function Profile() {
                 </div>
               </div>
 
-              {/* Bio */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Bio
@@ -216,7 +211,6 @@ export default function Profile() {
                 )}
               </div>
 
-              {/* Skills */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Skills
